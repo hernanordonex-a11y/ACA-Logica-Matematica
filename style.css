@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    min-height: 100vh; /* Altura mínima de la ventana */
+    background-color: #f4f4f9; /* Fondo claro */
+    margin: 0;
+}
+
+.calculator-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para todas las entradas y el selector */
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Asegura que el padding no cambie el ancho total */
+}
+
+button {
+    background-color: #007bff; /* Azul primario */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.display {
+    background-color: #222;
+    color: #00ff00; /* Verde neón (estilo terminal) */
+    font-size: 2.5em;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    overflow: hidden; /* Evita que los números largos desborden */
+}
+
+.error-message {
+    color: #dc3545; /* Rojo para errores */
+    margin-top: 10px;
+    font-weight: bold;
+    min-height: 20px; /* Evita saltos de diseño */
+}
