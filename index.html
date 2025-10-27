@@ -3,29 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Enteros</title>
+    <title>Suma Enteros | Proyecto de Diseño Gráfico</title>
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
-    <div class="calculator-container">
-        <h1>Calculadora Lógica de Enteros</h1>
-        
-        <input type="number" id="num1" placeholder="Primer Número Entero">
-        
-        <select id="operacion">
-            <option value="+">Suma (+)</option>
-            <option value="-">Resta (-)</option>
-        </select>
-        
-        <input type="number" id="num2" placeholder="Segundo Número Entero">
-        
-        <button onclick="calcular()">= CALCULAR</button> 
-        
-        <div id="resultado" class="display">0</div>
-        
-        <div id="mensaje-error" class="error-message"></div>
+    <div class="main-container">
 
+        <h1 class="page-title">Calculadora Lógica y Ley de Signos</h1>
+        
+        <div class="grid-layout">
+            
+            <div class="grid-item concept-card">
+                <h2>Tema: Suma de Números Enteros y Ley de Signos</h2>
+                <p>La **suma de números enteros** (ℤ) sigue dos reglas fundamentales basadas en la Ley de Signos:</p>
+                
+                <h3>Regla 1: Signos Iguales</h3>
+                <p>Si los números tienen el **mismo signo** (ambos positivos o ambos negativos), se **suman** sus valores absolutos y el resultado lleva el **signo común**.</p>
+                <p class="example">+5 + +3 = +8 | -5 + -3 = -8</p>
+                
+                <h3>Regla 2: Signos Diferentes</h3>
+                <p>Si los números tienen **signos diferentes**, se **restan** sus valores absolutos y el resultado lleva el signo del número con el **mayor valor absoluto**.</p>
+                <p class="example">+10 + -6 = +4 | -10 + +6 = -4</p>
+            </div>
+            
+            <div class="grid-item calculator-section">
+                <div class="calculator-body">
+                    <div class="display-area">
+                        <div class="equal-signs">
+                            <div class="equal-line"></div>
+                            <div class="equal-line"></div>
+                        </div>
+                        <div id="display" class="display">0</div>
+                    </div>
+                    
+                    <div class="buttons-grid">
+                        
+                        <button class="number" onclick="appendNumber('1')">1</button>
+                        <button class="number" onclick="appendNumber('2')">2</button>
+                        <button class="number" onclick="appendNumber('3')">3</button>
+                        <button class="control op-control" onclick="changeSign()">±</button> 
+
+                        <button class="number" onclick="appendNumber('4')">4</button>
+                        <button class="number" onclick="appendNumber('5')">5</button>
+                        <button class="number" onclick="appendNumber('6')">6</button>
+                        <button class="operator plus" onclick="setOperator('+')">+</button> 
+
+                        <button class="number" onclick="appendNumber('7')">7</button>
+                        <button class="number" onclick="appendNumber('8')">8</button>
+                        <button class="number" onclick="appendNumber('9')">9</button>
+                        
+                        <button class="control equals" onclick="calculateResult()">=</button> 
+                        <button class="control clear" onclick="clearDisplay()">C</button> 
+                        <button class="number zero" onclick="appendNumber('0')">0</button>
+                    </div>
+                </div>
+                <p class="instruccion">
+                    Use **+** para sumar al acumulado y **=** para ver el total.
+                </p>
+            </div>
+
+            <div class="grid-item video-section">
+                <h2>Video Explicativo: Ley de Signos</h2>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/K6CUDZOLIFI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p>Fuente: Cómo sumar números enteros (+Regla de los signos) - Daniel Carreon</p>
+            </div>
+
+            <div class="grid-item links-feed-section">
+                <h2>Metadatos y Repositorios</h2>
+                <div class="feed-links">
+                    
+                    <div class="info-link-card">
+                        <h3>🔗 Repositorios del Proyecto</h3>
+                        <p>Accede al código fuente y documentación:</p>
+                        <a href="https://www.ibm.com/docs/es/developer-for-zos/15.0.x?topic=projects-extracting-repository-content" target="_blank" class="repo-link">GitHub / GitLab</a>
+                        <p class="small-text">Fecha de Diseño: [DD/MM/AAAA]</p>
+                    </div>
+
+                    <div class="info-link-card">
+                        <h3>ℹ️ Info. del Proyecto</h3>
+                        <p>Participantes, Universidad y Asignatura:</p>
+                        <a href="info.html" class="repo-link primary-link">Ver Participantes</a>
+                    </div>
+                </div>
+                
+                <p class="small-text">Este proyecto fue creado como parte del curso de [Nombre de Asignatura].</p>
+            </div>
+            
+        </div>
+        
     </div>
 
     <script src="script.js"></script> 
