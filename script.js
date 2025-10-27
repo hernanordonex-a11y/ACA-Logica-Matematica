@@ -1,41 +1,95 @@
-function calcular() {
-    // 1. OBTENER VALORES DEL HTML
-    // Usamos .value para obtener lo que el usuario escribió
-    const num1_str = document.getElementById('num1').value;
-    const num2_str = document.getElementById('num2').value;
-    const operacion = document.getElementById('operacion').value;
-    
-    const resultadoDiv = document.getElementById('resultado');
-    const errorDiv = document.getElementById('mensaje-error');
+let currentNumber = '0'; 
+let totalAccumulated = 0; 
+let waitingForNewNumber = true; 
+let operatorPressed = false; 
 
-    // Limpiar mensajes de error previos
-    errorDiv.textContent = '';
-    resultadoDiv.textContent = 0; 
+const display = document.getElementById('display');
 
-    // 2. VALIDACIÓN RIGUROSA (RF5: Solo Enteros)
-    // Convertimos a número para validar. 
-    // Si el campo está vacío, la conversión será NaN o un número flotante.
-    const num1 = Number(num1_str);
-    const num2 = Number(num2_str);
-
-    if (!Number.isInteger(num1) || !Number.isInteger(num2) || num1_str === '' || num2_str === '') {
-        errorDiv.textContent = 'ERROR: Ingrese dos números enteros válidos. No se permiten decimales o texto.';
-        return; // Detiene la función
+/**
+ * Agrega un dígito al número actual en pantalla.
+ */
+function appendNumber(number) {
+    if (waitingForNewNumber || currentNumber === '0') {
+        currentNumber = number;
+        waitingForNewNumber = false;
+        operatorPressed = false; 
     }
-
-    // 3. CÁLCULO (RF3)
-    let resultado;
-    
-    if (operacion === '+') {
-        resultado = num1 + num2;
-    } else if (operacion === '-') {
-        resultado = num1 - num2;
-    } else {
-        // Esto es poco probable si usas el <select>, pero es buena práctica
-        errorDiv.textContent = 'ERROR: Operación no reconocida.';
-        return;
+    else if (currentNumber.length < 15) { 
+        currentNumber += number;
     }
-
-    // 4. SALIDA (RF4)
-    resultadoDiv.textContent = resultado;
+    
+    updateDisplay();
 }
+
+/**
+ * Cambia el signo del número actualmente en pantalla.
+ */
+function changeSign() {
+    const num = parseFloat(currentNumber);
+    
+    if (num !== 0) {
+        currentNumber = (num * -1).toString();
+    }
+    
+    waitingForNewNumber = false; 
+    
+    updateDisplay();
+}
+
+
+/**
+ * Maneja el operador SUMA (+). Acumula la suma.
+ */
+function setOperator(operator) {
+    if (operator !== '+') return; 
+
+    if (!waitingForNewNumber && !operatorPressed) {
+        const inputValue = parseInt(currentNumber);
+        totalAccumulated += inputValue;
+        operatorPressed = true; 
+    }
+    
+    currentNumber = totalAccumulated.toString(); 
+    waitingForNewNumber = true; 
+    
+    updateDisplay();
+}
+
+/**
+ * Calcula el resultado final al presionar el botón '='.
+ */
+function calculateResult() {
+    if (!waitingForNewNumber && !operatorPressed) {
+        const inputValue = parseInt(currentNumber);
+        totalAccumulated += inputValue;
+    }
+    
+    currentNumber = totalAccumulated.toString();
+    
+    totalAccumulated = 0;
+    waitingForNewNumber = true; 
+    operatorPressed = false;
+    
+    updateDisplay();
+}
+
+/**
+ * Resetea completamente la calculadora (Botón C).
+ */
+function clearDisplay() {
+    currentNumber = '0';
+    totalAccumulated = 0;
+    waitingForNewNumber = true;
+    operatorPressed = false;
+    updateDisplay();
+}
+
+/**
+ * Actualiza el texto en la pantalla.
+ */
+function updateDisplay() {
+    display.textContent = parseInt(currentNumber);
+}
+
+// Inicializa la pantalla
+clearDisplay();
