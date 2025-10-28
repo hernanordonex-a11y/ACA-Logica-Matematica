@@ -1,3 +1,126 @@
+/* =======================================================
+   VARIABLES GLOBALES
+   ======================================================= */
+:root {
+    --color-bg-site: rgb(253, 253, 253) ;
+    --color-bg-body: #f7f7f7;         
+    --color-display-border: #95a5a6;  
+    --color-display-text: #2c3e50;    
+    --color-number-bg: #ffffff;       
+    --color-operator-bg: #e67e22;     /* Naranja */
+    --color-control-bg: #bdc3c7;      /* Gris claro */
+    --color-info-primary: #3498db;    /* Azul para info */
+}
+
+/* =======================================================
+   ESTRUCTURA GENERAL Y BODY
+   ======================================================= */
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--color-bg-site); 
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding-top: 20px; 
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.page-title {
+    color:rgba(184, 195, 181) ;
+
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+/* ---------------------------------------------------
+   ESTRUCTURA PRINCIPAL: CSS GRID (2x2)
+   --------------------------------------------------- */
+.grid-layout {
+    display: grid;
+    /* 2 columnas de igual ancho */
+    grid-template-columns: 1fr 1fr; 
+    /* Separación entre cuadrantes */
+    gap: 40px 60px; 
+    width: 90%;
+    max-width: 1200px;
+}
+
+.grid-item {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(208,232,225);
+    height: auto; 
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------
+   CUADRANTE 2: CALCULADORA (Ajustes para el Grid)
+   --------------------------------------------------- */
+.calculator-section {
+    /* El contenedor grid-item para la calculadora */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0; 
+    box-shadow: none;
+    background: transparent;
+}
+
+.calculator-body {
+    /* El cuerpo de la calculadora debe mantener su tamaño fijo */
+    background-color: var(--color-bg-body);
+    padding: 30px 25px;
+    border-radius: 12px;
+
+    width: 380px; /* Ancho fijo esencial para el diseño */
+    height: 500px; /* Altura fija esencial para el diseño */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 35px;
+    background: rgba(208,232,225);
+}
+
+/* Área de Display */
+.display-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 250px ;
+    padding:10px ;
+    border: 0px solid var(--color-display-border);
+    border-radius: 28px;
+    background-color: rgba(253,253,253) ;
+    box-shadow: rgba(253,253,253);
+    font-family: Calibri ;
+
+}
+
+.equal-signs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.equal-line {
+    height: 3px;
+    background-color: var(--color-display-text);
+    width: 100%;
+    border-radius: 1px;
+}
+
 .display {
     flex-grow: 1; 
     background-color: transparent; 
@@ -123,7 +246,7 @@ color: #1e1015;
 
 /* Cuadrante 3: Video de YouTube */
 .video-section h2 {
-    color:rgb(179, 199, 181) ;
+    color:rgb(179, 199, 181);
     margin-top: 0;
     margin-bottom: 15px;
 }
