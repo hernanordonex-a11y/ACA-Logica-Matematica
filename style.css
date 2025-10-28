@@ -265,6 +265,10 @@ color: #1e1015;
     height: 100%;
     border-radius: 8px;
 }
+.information-video {
+color:rgba(163,184,204) ;
+}
+
 
 /* Cuadrante 4: Feed y Links */
 .links-feed-section h2 {
@@ -328,10 +332,11 @@ color: #1e1015;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--color-info-primary);
+    border-top: 5px solid rgba(176, 207, 169);
+
 }
 .project-info h2 {
-    color: var(--color-display-text);
+    color:rgba(176, 207, 169) ;
     border-bottom: 2px solid #ecf0f1;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -349,7 +354,7 @@ color: #1e1015;
     border-radius: 8px;
 }
 .info-card h3 {
-    color: var(--color-info-primary);
+    color:rgba(176, 207, 169 ) ;
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 1.3em;
@@ -364,7 +369,7 @@ color: #1e1015;
     color: #555;
 }
 .info-card strong {
-    color: #333;
+    color: #555 ;
 }
 .back-link {
     display: block;
@@ -372,7 +377,7 @@ color: #1e1015;
     text-align: center;
     text-decoration: none;
     font-size: 1.1em;
-    color: var(--color-info-primary);
+    color: rgba(163,184,204) ;
     font-weight: bold;
 }
 .back-link:hover {
@@ -380,4 +385,6 @@ color: #1e1015;
 }
 .info-card2{
 margin-bottom: 5em;
+color: rgba(176, 207, 169) ;
+
 }
