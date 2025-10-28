@@ -55,7 +55,7 @@ body {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgba(208,232,225);
     height: auto; 
     box-sizing: border-box;
 }
@@ -77,14 +77,16 @@ body {
     /* El cuerpo de la calculadora debe mantener su tamaño fijo */
     background-color: var(--color-bg-body);
     padding: 30px 25px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+
     width: 380px; /* Ancho fijo esencial para el diseño */
-    height: 570px; /* Altura fija esencial para el diseño */
+    height: 500px; /* Altura fija esencial para el diseño */
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 3px solid #ccc; 
+    border: 1px solid #ccc; 
+    border-radius: 35px;
+    background: rgba(208,232,225);
 }
 
 /* Área de Display */
@@ -92,11 +94,14 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px;
-    border: 2px solid var(--color-display-border);
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 250px ;
+    padding:10px ;
+    border: 0px solid var(--color-display-border);
+    border-radius: 28px;
+    background-color: rgba(253,253,253) ;
+    box-shadow: rgba(253,253,253);
+    font-family: Calibri ;
+
 }
 
 .equal-signs {
@@ -137,15 +142,16 @@ body {
 button {
     width: 100%;
     height: 75px; 
-    border-radius: 50%; 
-    border: 2px solid #555;
+    border-radius: 75%; 
+    border: 0px solid #555;
     background-color: var(--color-number-bg);
-    color: #444;
+    color:  rgb(179, 199, 181);
     font-size: 1.4em;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.1s;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    font-size:2.8em ;
 }
 
 button:active {
@@ -153,22 +159,29 @@ button:active {
 }
 
 .op-control, .equals, .clear {
-    background-color: var(--color-control-bg);
-    color: #444;
+    background-color: rgb(179, 199, 181) ;
+    color: rgb(253,253,253) ;
+    font-family: Calibri ;
+}
+.op-control{
+font-size: 2.3em ;
+
 }
 
 /* Botón SUMA (+) - Posición clave del diagrama */
 .plus {
     /* Esta línea es CRÍTICA para el diseño del diagrama */
     grid-area: 2 / 4 / 4 / 5; /* Ocupa Fila 2 y 3, Columna 4 */
-    background-color: var(--color-operator-bg);
+    background-color:  rgba(179, 199, 181);
     color: white;
-    border-radius: 10px; 
-    height: 100%; 
-    font-size: 3em; 
+    border-radius: 12px ;
+    height: 156%; 
+    font-size: 7.6em; 
     line-height: 100%;
-    border: 3px solid #797979; 
+    border: 0px solid #797979; 
     box-shadow: none;
+    font-family: Calibri ;
+    
 }
 
 /* Posicionamiento de la última fila */
